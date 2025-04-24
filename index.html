@@ -1,77 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <title>Frontend Mentor | Expenses chart component</title>
-</head>
-<body>
-  <main class="container">
-    <header class="header">
-      <div>
-        <p class="subtitle">My balance</p>
-        <p class="header__balance">$921.48</p>
+    <title>Frontend Mentor | Expenses chart component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <div class="balance">
+        <div class="text">
+          <p class="balance-text">My balance</p>
+          <p class="balance-number">$921.48</p>
+        </div>
+        <div class="logo-container">
+          <img src="./images/logo.svg" alt="" />
+        </div>
       </div>
-      <img src="images/logo.svg" alt="logo">
-    </header>
-    <div class="chart">
-      <div>
-        <h1 class="chart__header">Spending - Last 7 days</h1>
-        <div class="chart__container">
-          <div class="chart__col">
-            <div data-tooltip="$52.36" class="chart__bar"></div>
-            <span class="chart__label">mon</span>
+      <div class="spending">
+        <p class="spending-text">Spending - Last 7 days</p>
+        <div class="chart-div">
+          <div class="monday day">
+            <div class="day-short">mon</div>
+            <div class="mon bar" data-day="mon"></div>
+            <div class="tool-tip">dkdk</div>
           </div>
-          <div class="chart__col">
-            <div data-tooltip="$52.36" class="chart__bar"></div>
-            <span class="chart__label">tue</span>
+          <div class="tuesday day">
+            <div class="day-short">tue</div>
+            <div class="tue bar" data-day="tue"></div>
+            <div class="tool-tip">dkdk</div>
           </div>
-          <div class="chart__col">
-            <div data-tooltip="$52.36" class="chart__bar"></div>
-            <span class="chart__label">wed</span>
+          <div class="wednesday day">
+            <div class="day-short">wed</div>
+            <div class="wed bar" data-day="wed"></div>
+            <div class="tool-tip">dkdk</div>
           </div>
-          <div class="chart__col">
-            <div data-tooltip="$52.36" class="chart__bar"></div>
-            <span class="chart__label">thu</span>
+          <div class="thursday day">
+            <div class="day-short">thu</div>
+            <div class="thu bar" data-day="thu"></div>
+            <div class="tool-tip">dkdk</div>
           </div>
-          <div class="chart__col">
-            <div data-tooltip="$52.36" class="chart__bar"></div>
-            <span class="chart__label">fri</span>
+          <div class="friday day">
+            <div class="day-short">fri</div>
+            <div class="fri bar" data-day="fri"></div>
+            <div class="tool-tip">dkdk</div>
           </div>
-          <div class="chart__col">
-            <div data-tooltip="$52.36" class="chart__bar"></div>
-            <span class="chart__label">sat</span>
+          <div class="saturday day">
+            <div class="day-short">sat</div>
+            <div class="sat bar" data-day="sat"></div>
+            <div class="tool-tip">dkdk</div>
           </div>
-          <div class="chart__col">
-            <div data-tooltip="$52.36" class="chart__bar"></div>
-            <span class="chart__label">sun</span>
+          <div class="sunday day">
+            <div class="day-short">sun</div>
+            <div class="sun bar" data-day="sun"></div>
+            <div class="tool-tip">dkdk</div>
+          </div>
+        </div>
+        <div class="line"></div>
+
+        <div class="bottom-info">
+          <div class="total-div">
+            <p class="totat-this-month">Total this month</p>
+            <p class="total-number">$478.33</p>
+          </div>
+          <div class="rate-div">
+            <p class="rate-text">+2.4%</p>
+            <p class="from-last-month">from last month</p>
           </div>
         </div>
       </div>
-      <hr>
-      <div class="expense">
-        <p class="subtitle">Total this mouth</p>
-        <div class="expense__row">
-          <div>
-            <p class="expense__amount">$478.33</p>
-          </div>
-          <div>
-            <p class="expense__icrease">+2.4%</p>
-            <p class="subtitle">from last mouth</p>
-          </div>
-        </div>
-      </div>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Ikufisile Fopefoluwa</a>.
     </div>
-  </main>
-
-  <script src="index.js"></script>
-</body>
+    <script src="index.js"></script>
+  </body>
 </html>

@@ -1,21 +1,39 @@
-async function fetchData() {
-  const res = await fetch("/data.json");
-  const data = res.json();
-  return data;
-}
+const data = [
+  { day: "mon", amount: 17.45 },
+  { day: "tue", amount: 34.91 },
+  { day: "wed", amount: 52.36 },
+  { day: "thu", amount: 31.07 },
+  { day: "fri", amount: 23.39 },
+  { day: "sat", amount: 43.28 },
+  { day: "sun", amount: 25.48 },
+];
 
-async function main() {
-  const data = await fetchData();
-  const charts = document.querySelectorAll("chart__bar");
-  const amounts = data.map((day) => +day.amount);
-  const highestValue = Math.max(...amounts);
-  const highestValueIndex = amounts.indexOf(highestValue);
+const days = document.querySelectorAll(".bar");
+const total = data.reduce((sum, item) => sum + item.amount, 0);
 
-  charts.forEach((chart, i) => {
-    chart.dataset.tooltip = data[i].amount;
-    chart.style.height = `${(+data[i].amount / highestValue) * 100}%`;
+days.forEach((bar, i) => {
+  const percent = data[i].amount / total;
+  const height = percent * 100;
+  bar.style.height = `calc(7 * ${height}px)`;
+});
+days.forEach((day) => {
+  day.addEventListener("mouseenter", () => {
+    toggleTooltip(day, true);
   });
-  charts[highestValueIndex].classList.add("chart__bar--accent");
-}
 
-main();
+  day.addEventListener("mouseleave", () => {
+    toggleTooltip(day, false);
+  });
+});
+
+const toggleTooltip = (element, show) => {
+  const parent = element.closest(".day");
+  const toolTip = parent.querySelector(".tool-tip");
+  const dayKey = element.dataset.day;
+
+  if (toolTip && dayKey) {
+    const match = data.find((item) => item.day === dayKey);
+    if (match) toolTip.textContent = `$${match.amount}`;
+    toolTip.classList.toggle("show", show);
+  }
+};
